@@ -43,29 +43,29 @@ const Customizer = () => {
   const handleSubmit = async (type) => {
     if (!prompt) return alert('Please enter a prompt');
 
-    try {
-      // call backend to generate an ai image!
-      setGeneratingImg(true);
-      const response = await fetch(
-        "https://threed-ai-shirt-fdhg.onrender.com/api/v1/dalle",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt }),
-        }
-      );
+    // try {
+    //   // call backend to generate an ai image!
+    //   setGeneratingImg(true);
+    //   const response = await fetch(
+    //     "https://threed-ai-shirt-fdhg.onrender.com/api/v1/dalle",
+    //     {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({ prompt }),
+    //     }
+    //   );
 
-      const data = await response.json();
+    //   const data = await response.json();
 
-      handleDecals(type, `data:image/png;base64,${data.photo}`)
-    } catch (error) {
-      alert(error);
-    } finally {
-      setGeneratingImg(false);
-      setActiveEditorTab("");
-    }
+    //   handleDecals(type, `data:image/png;base64,${data.photo}`)
+    // } catch (error) {
+    //   alert(error);
+    // } finally {
+    //   setGeneratingImg(false);
+    //   setActiveEditorTab("");
+    // }
   }
 
   const handleDecals = (type, result) => {
